@@ -26,6 +26,9 @@
     <Filter Include="Graphics\D3DSprite">
       <UniqueIdentifier>{48e36e56-e69e-412e-8964-2c83e38314c3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Input">
+      <UniqueIdentifier>{766104df-7042-442f-bb1d-9034a2ef4ca9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -70,6 +73,18 @@
     <ClInclude Include="D3DGraphicsProvider.h">
       <Filter>Graphics\D3DGeneral</Filter>
     </ClInclude>
+    <ClInclude Include="DirectInput8InputLayer.h">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectInput8Keyboard.h">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectInput8Mouse.h">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="IRealTimeInputProvider.h">
+      <Filter>Input</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -89,6 +104,15 @@
     </ClCompile>
     <ClCompile Include="D3DTextureCache.cpp">
       <Filter>Graphics\D3DTexture</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectInput8InputLayer.cpp">
+      <Filter>Input</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectInput8Keyboard.cpp">
+      <Filter>Input</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectInput8Mouse.cpp">
+      <Filter>Input</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

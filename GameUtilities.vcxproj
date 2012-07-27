@@ -75,12 +75,16 @@
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DirectInput8InputLayer.h" />
     <ClInclude Include="D3D9GraphicsLayer.h" />
     <ClInclude Include="D3DGraphicsProvider.h" />
     <ClInclude Include="D3DTexture.h" />
     <ClInclude Include="D3DTextureCache.h" />
+    <ClInclude Include="DirectInput8Keyboard.h" />
+    <ClInclude Include="DirectInput8Mouse.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="IGraphicsProvider.h" />
+    <ClInclude Include="IRealTimeInputProvider.h" />
     <ClInclude Include="Point2D.h" />
     <ClInclude Include="D3DSprite.h" />
     <ClInclude Include="D3DSpriteCollection.h" />
@@ -94,6 +98,9 @@
     <ClCompile Include="D3DGraphicsProvider.cpp" />
     <ClCompile Include="D3DSprite.cpp" />
     <ClCompile Include="D3DTextureCache.cpp" />
+    <ClCompile Include="DirectInput8InputLayer.cpp" />
+    <ClCompile Include="DirectInput8Keyboard.cpp" />
+    <ClCompile Include="DirectInput8Mouse.cpp" />
     <ClCompile Include="Globals.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
