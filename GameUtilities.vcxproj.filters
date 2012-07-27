@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Graphics">
+      <UniqueIdentifier>{862021eb-1d23-4230-80bb-8f8dabd12019}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PrecompiledHeader">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Globals">
+      <UniqueIdentifier>{00df7d3b-d89b-4904-82ff-8c614372171b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Errors">
+      <UniqueIdentifier>{b67481a1-e042-4f03-9269-b53fa548b726}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Math">
+      <UniqueIdentifier>{607632b7-683c-48d2-8d8a-d78031928e61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\D3DGeneral">
+      <UniqueIdentifier>{5ec564f8-29f6-4925-9b3e-07ff01cfbdfd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\D3DTexture">
+      <UniqueIdentifier>{3da060c0-8c56-4ad8-b20a-f71dffee96b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\D3DSprite">
+      <UniqueIdentifier>{48e36e56-e69e-412e-8964-2c83e38314c3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="targetver.h">
+      <Filter>PrecompiledHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>PrecompiledHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="Globals.h">
+      <Filter>Globals</Filter>
+    </ClInclude>
+    <ClInclude Include="UtilityError.h">
+      <Filter>Errors</Filter>
+    </ClInclude>
+    <ClInclude Include="IGraphicsProvider.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Point2D.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="D3D9GraphicsLayer.h">
+      <Filter>Graphics\D3DGeneral</Filter>
+    </ClInclude>
+    <ClInclude Include="D3DSprite.h">
+      <Filter>Graphics\D3DSprite</Filter>
+    </ClInclude>
+    <ClInclude Include="D3DSpriteCollection.h">
+      <Filter>Graphics\D3DSprite</Filter>
+    </ClInclude>
+    <ClInclude Include="D3DSpriteInfo.h">
+      <Filter>Graphics\D3DSprite</Filter>
+    </ClInclude>
+    <ClInclude Include="D3DTextureCache.h">
+      <Filter>Graphics\D3DTexture</Filter>
+    </ClInclude>
+    <ClInclude Include="D3DTexture.h">
+      <Filter>Graphics\D3DTexture</Filter>
+    </ClInclude>
+    <ClInclude Include="D3DGraphicsProvider.h">
+      <Filter>Graphics\D3DGeneral</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>PrecompiledHeader</Filter>
+    </ClCompile>
+    <ClCompile Include="Globals.cpp">
+      <Filter>Globals</Filter>
+    </ClCompile>
+    <ClCompile Include="D3D9GraphicsLayer.cpp">
+      <Filter>Graphics\D3DGeneral</Filter>
+    </ClCompile>
+    <ClCompile Include="D3DGraphicsProvider.cpp">
+      <Filter>Graphics\D3DGeneral</Filter>
+    </ClCompile>
+    <ClCompile Include="D3DSprite.cpp">
+      <Filter>Graphics\D3DSprite</Filter>
+    </ClCompile>
+    <ClCompile Include="D3DTextureCache.cpp">
+      <Filter>Graphics\D3DTexture</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
