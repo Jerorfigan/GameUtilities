@@ -129,5 +129,8 @@ namespace GameUtilities
 		{
 			delete spriteCollectionItr->second;
 		}
+
+		// Destroy graphics layer.
+		Graphics()->Destroy();
 	}
 }
