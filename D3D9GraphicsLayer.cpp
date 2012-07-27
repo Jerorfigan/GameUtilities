@@ -160,6 +160,7 @@ namespace GameUtilities
 
 	D3D9GraphicsLayer::~D3D9GraphicsLayer()
 	{
+		SafeRelease( m_pSpriteInterface );
 		SafeRelease( m_pBackBuffer );
 		SafeRelease( m_pD3DDevice );
 		SafeRelease( m_pD3D );
@@ -174,7 +175,7 @@ namespace GameUtilities
 		new D3D9GraphicsLayer( hWnd );
 
 		// Init Direct3D and the device for fullscreen operation.
-		Graphics()->InitD3D( pGuid, backBuffWidth, backBuffHeight, 24u, fullscreen );
+		Graphics()->InitD3D( pGuid, backBuffWidth, backBuffHeight, 32u, fullscreen );
 	}
 
 	void D3D9GraphicsLayer::Destroy()
