@@ -187,7 +187,6 @@ namespace GameUtilities
 	/***************/
 	/* Static data */
 	/***************/
-
 	D3D9GraphicsLayer* D3D9GraphicsLayer::m_pD3D9GraphicsLayer = NULL;
 
 }

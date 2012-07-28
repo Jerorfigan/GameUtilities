@@ -85,6 +85,9 @@
     <ClInclude Include="IRealTimeInputProvider.h">
       <Filter>Input</Filter>
     </ClInclude>
+    <ClInclude Include="DirectInputInputProvider.h">
+      <Filter>Input</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -112,6 +115,9 @@
       <Filter>Input</Filter>
     </ClCompile>
     <ClCompile Include="DirectInput8Mouse.cpp">
+      <Filter>Input</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectInputInputProvider.cpp">
       <Filter>Input</Filter>
     </ClCompile>
   </ItemGroup>

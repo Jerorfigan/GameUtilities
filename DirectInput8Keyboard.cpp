@@ -48,7 +48,7 @@ namespace GameUtilities
 	//////////
 	// Poll //
 	////////// 
-	bool DirectInput8Keyboard::Poll( char key )
+	bool DirectInput8Keyboard::Poll( int key )
 	{
 		// First try to acquire the device. If we can't just return false.
 		HRESULT hr = m_pDevice->Acquire();

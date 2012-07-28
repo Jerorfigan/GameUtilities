@@ -69,4 +69,31 @@ namespace GameUtilities
 			SafeRelease( m_pDirectInput8 );
 		}
 
+		/******************/
+		/* Static methods */
+		/******************/
+		
+		////////////
+		// Create //
+		////////////
+		void						  
+		DirectInput8InputLayer::Create( HINSTANCE hInst, HWND hWnd, bool exclusive, bool useKeyboard, bool useMouse )
+		{
+			new DirectInput8InputLayer( hInst, hWnd, exclusive, useKeyboard, useMouse );
+		}
+
+		/////////////
+		// Destroy //
+		/////////////
+		void 
+		DirectInput8InputLayer::Destroy()
+		{
+			delete m_pD3D8InputLayer;
+			m_pD3D8InputLayer = NULL;
+		}
+
+		/***************/
+		/* Static data */
+		/***************/
+		DirectInput8InputLayer *DirectInput8InputLayer::m_pD3D8InputLayer = NULL;
 }

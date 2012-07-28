@@ -24,7 +24,7 @@ namespace GameUtilities
 		/* Methods */
 		/***********/
 	public:
-		bool    Poll( char key );
+		bool    Poll( int key );
 
 		/**************/
 		/* Destructor */

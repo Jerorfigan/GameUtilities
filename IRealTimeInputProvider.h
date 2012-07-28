@@ -15,7 +15,14 @@ namespace GameUtilities
 		/* Pure virtual methods */
 		/************************/
 	public:
-		virtual bool IsKeyDown( char key ) = 0;
+		virtual bool IsKeyDown( char asciiChar ) = 0;
+		virtual bool IsKeyDown( UINT winVirtualKey ) = 0;
+
+		/**************/
+		/* Destructor */
+		/**************/
+	public:
+		~IRealTimeInputProvider() {};
 	};
 
 }

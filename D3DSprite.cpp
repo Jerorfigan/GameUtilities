@@ -45,6 +45,7 @@ namespace GameUtilities
 		D3DXVECTOR3 center;
 		center.x = m_info.center.x;
 		center.y = m_info.center.y;
+		center.z = 0;
 
 		// Construct the alpha value.
 		BYTE alphaValue = static_cast< BYTE >( 255 * m_info.alpha );

@@ -56,6 +56,12 @@ namespace GameUtilities
 		virtual void				  DrawSpriteCollection( SpriteCollectionID id ) = 0;
 		virtual void				  StartSpriteBatch() = 0;
 		virtual void				  EndSpriteBatch() = 0;
+
+		/**************/
+		/* Destructor */
+		/**************/
+	public:
+		~IGraphicsProvider() {};
 	};
 
 }
