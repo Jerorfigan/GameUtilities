@@ -12,6 +12,13 @@ namespace GameUtilities
 	{
 		// Create DirectInput8 input layer.
 		DirectInput8InputLayer::Create( hInst, hWnd, exclusive );
+
+		// Populate the scan code map.
+		// RightArrow, LeftArrow, UpArrow, DownArrow
+		m_scanCodes[ RightArrow ] = DIK_RIGHT;
+		m_scanCodes[ LeftArrow ] = DIK_LEFT;
+		m_scanCodes[ UpArrow ] = DIK_UP;
+		m_scanCodes[ DownArrow ] = DIK_DOWN;
 	}
 
 	/**************/

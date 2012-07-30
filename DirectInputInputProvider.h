@@ -7,6 +7,7 @@
 /******************************************/
 
 #include <Windows.h>
+#include <map>
 
 #include "IRealTimeInputProvider.h"
 #include "DirectInput8InputLayer.h"
@@ -16,6 +17,12 @@ namespace GameUtilities
 
 	class DirectInputInputProvider : public IRealTimeInputProvider
 	{
+		/************/
+		/* Typedefs */
+		/************/
+	private:
+		typedef std::map< NonCharKey, UINT > ScanCodeMap;
+
 		/****************/
 		/* Constructors */
 		/****************/
@@ -26,14 +33,20 @@ namespace GameUtilities
 		/* Virtual methods */
 		/*******************/
 	public:
-		virtual bool IsKeyDown( char key );
-		virtual bool IsKeyDown( UINT winVirtualKey );
+		virtual bool    IsKeyDown( char key );
+		virtual bool    IsKeyDown( NonCharKey key );
 
 		/**************/
 		/* Destructor */
 		/**************/
 	public:
 		~DirectInputInputProvider();
+
+		/********/
+		/* Data */
+		/********/
+	private:
+		ScanCodeMap    m_scanCodes;
 	};
 
 	/***********/
@@ -51,13 +64,16 @@ namespace GameUtilities
 		return Input()->GetKeyboard()->Poll( scanCode );
 	}
 
-	/////////////////////////////////////
-	// IsKeyDown( UINT winVirtualKey ) //
-	/////////////////////////////////////
+	/////////////////////////////////
+	// IsKeyDown( NonCharKey key ) //
+	/////////////////////////////////
 	inline bool 
-	DirectInputInputProvider::IsKeyDown( UINT winVirtualKey )
+	DirectInputInputProvider::IsKeyDown( NonCharKey key )
 	{
-		UINT scanCode = MapVirtualKey( winVirtualKey, 0 );
-		return Input()->GetKeyboard()->Poll( scanCode );
+		// Translate the non-char key enum to its appropriate scan code via the 
+		// lookup table.
+		if( m_scanCodes.find( key ) != m_scanCodes.end() )
+			return Input()->GetKeyboard()->Poll( m_scanCodes[ key ] );
+		return false;
 	}
 }
