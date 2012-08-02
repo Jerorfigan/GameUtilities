@@ -23,6 +23,7 @@ namespace GameUtilities
 		float		   rotation;
 		float          scale;
 		float          alpha;
+		float          zDepth;
 	};
 
 }

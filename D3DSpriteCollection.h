@@ -10,6 +10,7 @@
 
 #include "D3DSprite.h"
 #include "UtilityError.h"
+#include "D3DSpriteDrawQueue.h"
 
 namespace GameUtilities
 {
@@ -75,7 +76,7 @@ namespace GameUtilities
 		for( SpriteMap::iterator spriteItr = m_sprites.begin();
 			 spriteItr != m_sprites.end(); ++spriteItr )
 		{
-			spriteItr->second->Draw();
+			SpriteDrawQueue()->AddToDrawQueue( spriteItr->second );
 		}
 	}
 	

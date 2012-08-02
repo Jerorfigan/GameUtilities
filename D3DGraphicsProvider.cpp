@@ -3,6 +3,8 @@
 #include "D3DGraphicsProvider.h"
 #include "D3DSpriteInfo.h"
 #include "D3DSprite.h"
+#include "D3DTextureCache.h"
+#include "D3DSpriteDrawQueue.h"
 
 namespace GameUtilities
 {
@@ -13,6 +15,8 @@ namespace GameUtilities
 	D3DGraphicsProvider::D3DGraphicsProvider( HWND hWnd, uint backbufferWidth, uint backbufferHeight )
 	{
 		D3D9GraphicsLayer::Create( hWnd, backbufferWidth, backbufferHeight, NULL, false );
+		D3DTextureCache::Create();
+		D3DSpriteDrawQueue::Create();
 	}
 
 	/*******************/
@@ -115,6 +119,10 @@ namespace GameUtilities
 	void				 
 	D3DGraphicsProvider::EndSpriteBatch()
 	{
+		// All sprites to be drawn are sititng in the D3DSpriteDrawQueue, in order of z-depth.
+		// So go ahead and draw them now.
+		SpriteDrawQueue()->Draw();
+
 		Graphics()->GetSpriteInterface()->End();
 	}
 

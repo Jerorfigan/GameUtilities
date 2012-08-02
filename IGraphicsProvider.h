@@ -35,6 +35,7 @@ namespace GameUtilities
 			float		   rotation;  // In degrees. Positive for CW.
 			float		   scale;     // 0-1(shrink), >1(grow)
 			float		   alpha;     // 0(trans)-1(opaque)
+			float          zDepth;    // 0(foreground)-1(background)
 		};
 
 		/************************/

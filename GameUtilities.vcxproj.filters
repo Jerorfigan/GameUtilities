@@ -29,6 +29,9 @@
     <Filter Include="Input">
       <UniqueIdentifier>{766104df-7042-442f-bb1d-9034a2ef4ca9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Timer">
+      <UniqueIdentifier>{c6b1908e-c8f4-48a6-a827-e9c94c8a24a2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -88,6 +91,12 @@
     <ClInclude Include="DirectInputInputProvider.h">
       <Filter>Input</Filter>
     </ClInclude>
+    <ClInclude Include="HighResolutionTimer.h">
+      <Filter>Timer</Filter>
+    </ClInclude>
+    <ClInclude Include="D3DSpriteDrawQueue.h">
+      <Filter>Graphics\D3DSprite</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -119,6 +128,9 @@
     </ClCompile>
     <ClCompile Include="DirectInputInputProvider.cpp">
       <Filter>Input</Filter>
+    </ClCompile>
+    <ClCompile Include="D3DSpriteDrawQueue.cpp">
+      <Filter>Graphics\D3DSprite</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

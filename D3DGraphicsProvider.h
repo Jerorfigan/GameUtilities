@@ -41,7 +41,6 @@ namespace GameUtilities
 		void			    VerifySpriteCollectionID( SpriteCollectionID id, bool isPresent = true );
 		D3DSpriteInfo       ConstructD3DSpriteInfo( SpriteInfo info );
 		SpriteInfo          ExtractSpriteInfo( D3DSpriteInfo D3Dinfo );
-		D3DTextureCache*    GetTextureCache();
 
 		/*******************/
 		/* Virtual methods */
@@ -75,12 +74,6 @@ namespace GameUtilities
 		/********/
 	private:
 		 SpriteCollectionMap    m_spriteCollections;
-		 D3DTextureCache        m_textureCache;
-
-		 /***********************/
-		 /* Friend declarations */
-		 /***********************/
-		 friend struct D3DSprite;
 	};
 
 	/***********/
@@ -114,6 +107,7 @@ namespace GameUtilities
 		spriteInfo.rotation = info.rotation;
 		spriteInfo.scale = info.scale;
 		spriteInfo.subrect = info.subrect;
+		spriteInfo.zDepth = info.zDepth;
 
 		return spriteInfo;
 	}
@@ -132,17 +126,9 @@ namespace GameUtilities
 		spriteInfo.rotation = info.rotation;
 		spriteInfo.scale = info.scale;
 		spriteInfo.subrect = info.subrect;
+		spriteInfo.zDepth = info.zDepth;
 
 		return spriteInfo;
-	}
-
-	/////////////////////
-	// GetTextureCache //
-	/////////////////////
-	inline D3DTextureCache*    
-	D3DGraphicsProvider::GetTextureCache()
-	{
-		return &m_textureCache;
 	}
 
 	////////////////

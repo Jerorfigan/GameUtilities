@@ -13,7 +13,7 @@
 namespace GameUtilities
 {
 
-	struct D3DSprite
+	class D3DSprite
 	{
 		/************/
 		/* Typedefs */
