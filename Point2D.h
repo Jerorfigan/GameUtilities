@@ -33,6 +33,7 @@ namespace GameUtilities
 		/*************/
 		Point2D    operator+( const Point2D &rhs ) const;
 		Point2D    operator-( const Point2D &rhs ) const;
+		Point2D    operator*( const float &rhs ) const;
 
 		/********/
 		/* Data */
@@ -54,6 +55,9 @@ namespace GameUtilities
 		return x * x + y * y;
 	}
 
+	/********************/
+	/* Operator Inlines */
+	/********************/
 	inline Point2D    Point2D::operator+( const Point2D &rhs ) const
 	{
 		return Point2D( x + rhs.x, y + rhs.y );
@@ -62,5 +66,18 @@ namespace GameUtilities
 	inline Point2D    Point2D::operator-( const Point2D &rhs ) const
 	{
 		return Point2D( x - rhs.x, y - rhs.y );
+	}
+
+	inline Point2D    Point2D::operator*( const float &rhs ) const
+	{
+		return Point2D( x * rhs, y * rhs );
+	}
+
+	/************************/
+	/* Non-member operators */
+	/************************/
+	inline Point2D    operator*( const float &lhs, const Point2D &rhs )
+	{
+		return Point2D( rhs.x * lhs, rhs.y * lhs );
 	}
 }
