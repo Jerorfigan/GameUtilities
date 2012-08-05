@@ -100,6 +100,7 @@
     <ClCompile Include="D3D9GraphicsLayer.cpp" />
     <ClCompile Include="D3DGraphicsProvider.cpp" />
     <ClCompile Include="D3DSprite.cpp" />
+    <ClCompile Include="D3DSpriteCollection.cpp" />
     <ClCompile Include="D3DSpriteDrawQueue.cpp" />
     <ClCompile Include="D3DTextureCache.cpp" />
     <ClCompile Include="DirectInput8InputLayer.cpp" />

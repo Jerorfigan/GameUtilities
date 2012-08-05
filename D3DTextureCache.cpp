@@ -35,7 +35,9 @@ namespace GameUtilities
 		if( !TextureLoaded( imageFile ) )
 		{
 			D3DTexture *pTexture = new D3DTexture();
-			D3DXCreateTextureFromFile( Graphics()->GetD3DDevice(), imageFile.c_str(), &pTexture->m_pD3DTexture9 );
+			HRESULT hr = D3DXCreateTextureFromFile( Graphics()->GetD3DDevice(), imageFile.c_str(), &pTexture->m_pD3DTexture9 );
+			if( FAILED(hr) )
+				throw UtilityError( "[D3DTextureCache::GetTexture]: D3DXCreateTextureFromFile failed to load texture." );
 			m_textures[ imageFile ] = pTexture;
 		}
 

@@ -28,7 +28,7 @@ namespace GameUtilities
 		/* Constructor */
 		/***************/
 	public:
-		D3DSpriteCollection() {}
+		D3DSpriteCollection() : m_ID( m_IDSequence++ ) {}
 
 		/***********/
 		/* Methods */
@@ -60,7 +60,7 @@ namespace GameUtilities
 		/* Static data */
 		/***************/
 	private:
-		ID    m_IDSequence;
+		static ID    m_IDSequence;
 	};
 
 	/***********/

@@ -132,5 +132,8 @@
     <ClCompile Include="D3DSpriteDrawQueue.cpp">
       <Filter>Graphics\D3DSprite</Filter>
     </ClCompile>
+    <ClCompile Include="D3DSpriteCollection.cpp">
+      <Filter>Graphics\D3DSprite</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
