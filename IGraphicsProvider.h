@@ -28,6 +28,15 @@ namespace GameUtilities
 	public: 
 		struct SpriteInfo
 		{
+			SpriteInfo()
+			{
+				subrect.left = subrect.right = subrect.top = subrect.bottom = 0;
+				rotation = 0.0f;
+				scale = 1.0f;
+				alpha = 1.0f;
+			    zDepth = 0.0f;
+			}
+
 			std::string    imageFile;
 			RECT           subrect;
 			Point2D		   center;    // In subrect pixels. Reference point for rotation/scale.
@@ -50,6 +59,7 @@ namespace GameUtilities
 
 		/* Sprite management. */
 		virtual	SpriteCollectionID    CreateSpriteCollection() = 0;
+		virtual void                  DestroySpriteCollection( SpriteCollectionID id ) = 0;
 		virtual void				  AddSprite( SpriteCollectionID id, std::string name, const SpriteInfo &info ) = 0;
 		virtual void                  RemoveSprite( SpriteCollectionID id, std::string name ) = 0;
 		virtual void			      SetSprite( SpriteCollectionID id, std::string name, const SpriteInfo &info ) = 0;
