@@ -21,6 +21,7 @@ namespace GameUtilities
 		/************/
 	public:
 		typedef std::size_t SpriteCollectionID;
+		typedef std::size_t TextCollectionID;
 
 		/********************/
 		/* Internal classes */
@@ -49,6 +50,14 @@ namespace GameUtilities
 			float          zDepth;    // 0(foreground)-1(background)
 		};
 
+		struct TextInfo
+		{
+			std::string    contents;
+			Point2D        position;
+			uint           fontSize; // 1(small)-10(large)
+			BYTE           argb[4]; // [0]=alpha, [1]=red, [2]=green, [3]=blue
+		};
+
 		/************************/
 		/* Pure virtual methods */
 		/************************/
@@ -69,6 +78,15 @@ namespace GameUtilities
 		virtual void				  DrawSpriteCollection( SpriteCollectionID id ) = 0;
 		virtual void				  StartSpriteBatch() = 0;
 		virtual void				  EndSpriteBatch() = 0;
+
+		/* Text management */
+		virtual TextCollectionID      CreateTextCollection() = 0;
+		virtual void                  DestroyTextCollection( TextCollectionID id ) = 0;
+		virtual void                  AddText( TextCollectionID id, std::string name, const TextInfo &info ) = 0;
+		virtual void                  RemoveText( TextCollectionID id, std::string name ) = 0;
+		virtual void                  SetText( TextCollectionID id, std::string name, const TextInfo &info ) = 0;
+		virtual TextInfo              GetText( TextCollectionID id, std::string name ) = 0;
+		virtual void                  DrawTextCollection( TextCollectionID id ) = 0;
 
 		/**************/
 		/* Destructor */

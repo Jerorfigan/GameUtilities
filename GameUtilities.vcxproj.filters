@@ -32,6 +32,9 @@
     <Filter Include="Timer">
       <UniqueIdentifier>{c6b1908e-c8f4-48a6-a827-e9c94c8a24a2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Graphics\D3DText">
+      <UniqueIdentifier>{693bdf47-4333-4992-beb3-2f82ee8e4bb3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -97,6 +100,15 @@
     <ClInclude Include="D3DSpriteDrawQueue.h">
       <Filter>Graphics\D3DSprite</Filter>
     </ClInclude>
+    <ClInclude Include="D3DText.h">
+      <Filter>Graphics\D3DText</Filter>
+    </ClInclude>
+    <ClInclude Include="D3DTextCollection.h">
+      <Filter>Graphics\D3DText</Filter>
+    </ClInclude>
+    <ClInclude Include="D3DTextInfo.h">
+      <Filter>Graphics\D3DText</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -134,6 +146,12 @@
     </ClCompile>
     <ClCompile Include="D3DSpriteCollection.cpp">
       <Filter>Graphics\D3DSprite</Filter>
+    </ClCompile>
+    <ClCompile Include="D3DText.cpp">
+      <Filter>Graphics\D3DText</Filter>
+    </ClCompile>
+    <ClCompile Include="D3DTextCollection.cpp">
+      <Filter>Graphics\D3DText</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

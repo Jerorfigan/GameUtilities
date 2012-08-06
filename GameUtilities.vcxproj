@@ -76,6 +76,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D3DSpriteDrawQueue.h" />
+    <ClInclude Include="D3DText.h" />
+    <ClInclude Include="D3DTextCollection.h" />
+    <ClInclude Include="D3DTextInfo.h" />
     <ClInclude Include="DirectInput8InputLayer.h" />
     <ClInclude Include="D3D9GraphicsLayer.h" />
     <ClInclude Include="D3DGraphicsProvider.h" />
@@ -102,6 +105,8 @@
     <ClCompile Include="D3DSprite.cpp" />
     <ClCompile Include="D3DSpriteCollection.cpp" />
     <ClCompile Include="D3DSpriteDrawQueue.cpp" />
+    <ClCompile Include="D3DText.cpp" />
+    <ClCompile Include="D3DTextCollection.cpp" />
     <ClCompile Include="D3DTextureCache.cpp" />
     <ClCompile Include="DirectInput8InputLayer.cpp" />
     <ClCompile Include="DirectInput8Keyboard.cpp" />

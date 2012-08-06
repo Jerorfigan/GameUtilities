@@ -16,6 +16,7 @@
 #include "D3DTextureCache.h"
 #include "UtilityError.h"
 #include "D3D9GraphicsLayer.h"
+#include "D3DTextCollection.h"
 
 namespace GameUtilities
 {
@@ -27,6 +28,7 @@ namespace GameUtilities
 		/************/
 	public:
 		typedef std::map< SpriteCollectionID, D3DSpriteCollection* > SpriteCollectionMap;
+		typedef std::map< TextCollectionID, D3DTextCollection* > TextCollectionMap;
 
 		/****************/
 		/* Constructors */
@@ -41,6 +43,10 @@ namespace GameUtilities
 		void			    VerifySpriteCollectionID( SpriteCollectionID id, bool isPresent = true );
 		D3DSpriteInfo       ConstructD3DSpriteInfo( SpriteInfo info );
 		SpriteInfo          ExtractSpriteInfo( D3DSpriteInfo D3Dinfo );
+
+		void                VerifyTextCollectionID( TextCollectionID id, bool isPresent = true );
+		D3DTextInfo         ConstructD3DTextInfo( TextInfo info );
+		TextInfo            ExtractTextInfo( D3DTextInfo D3Dinfo );
 
 		/*******************/
 		/* Virtual methods */
@@ -63,6 +69,15 @@ namespace GameUtilities
 		virtual void				  StartSpriteBatch();
 		virtual void				  EndSpriteBatch();
 
+		/* Text management */
+		virtual TextCollectionID      CreateTextCollection();
+		virtual void                  DestroyTextCollection( TextCollectionID id );
+		virtual void                  AddText( TextCollectionID id, std::string name, const TextInfo &info );
+		virtual void                  RemoveText( TextCollectionID id, std::string name );
+		virtual void                  SetText( TextCollectionID id, std::string name, const TextInfo &info );
+		virtual TextInfo              GetText( TextCollectionID id, std::string name );
+		virtual void                  DrawTextCollection( TextCollectionID id );
+
 		/**************/
 		/* Destructor */
 		/**************/
@@ -74,6 +89,7 @@ namespace GameUtilities
 		/********/
 	private:
 		 SpriteCollectionMap    m_spriteCollections;
+		 TextCollectionMap      m_textCollections;
 	};
 
 	/***********/
@@ -90,7 +106,7 @@ namespace GameUtilities
 		if( findResult == m_spriteCollections.end() && isPresent )
 			throw UtilityError( "[D3DGraphicsProvider::VerifySpriteCollectionID]: Invalid sprite collection ID passed to D3DGraphicsProvider." );
 		else if( findResult != m_spriteCollections.end() && !isPresent )
-			throw UtilityError( "[D3DGraphicsProvider::VerifySpriteCollectionID]: Collection ID passed to D3DGraphicsProvider already in use." );
+			throw UtilityError( "[D3DGraphicsProvider::VerifySpriteCollectionID]: Sprite collection ID passed to D3DGraphicsProvider already in use." );
 	}
 
 	////////////////////////////
@@ -131,6 +147,51 @@ namespace GameUtilities
 		spriteInfo.zDepth = info.zDepth;
 
 		return spriteInfo;
+	}
+
+	////////////////////////////
+	// VerifyTextCollectionID //
+	////////////////////////////
+	inline void                
+	D3DGraphicsProvider::VerifyTextCollectionID( TextCollectionID id, bool isPresent )
+	{
+		TextCollectionMap::iterator findResult = m_textCollections.find( id );
+		if( findResult == m_textCollections.end() && isPresent )
+			throw UtilityError( "[D3DGraphicsProvider::VerifyTextCollectionID]: Invalid text collection ID passed to D3DGraphicsProvider." );
+		else if( findResult != m_textCollections.end() && !isPresent )
+			throw UtilityError( "[D3DGraphicsProvider::VerifyTextCollectionID]: Text collection ID passed to D3DGraphicsProvider already in use." );
+	}
+
+	//////////////////////////
+	// ConstructD3DTextInfo //
+	//////////////////////////
+	inline D3DTextInfo         
+	D3DGraphicsProvider::ConstructD3DTextInfo( TextInfo info )
+	{
+		D3DTextInfo d3dInfo;
+		d3dInfo.contents = info.contents;
+		d3dInfo.position = info.position;
+		d3dInfo.fontSize = info.fontSize;
+		for( uint i = 0; i < 4; ++i )
+			d3dInfo.argb[i] = info.argb[i];
+
+		return d3dInfo;
+	}
+		
+	/////////////////////
+	// ExtractTextInfo //
+	/////////////////////
+	inline D3DGraphicsProvider::TextInfo            
+	D3DGraphicsProvider::ExtractTextInfo( D3DTextInfo D3Dinfo )
+	{
+		TextInfo info;
+		info.contents = D3Dinfo.contents;
+		info.position = D3Dinfo.position;
+		info.fontSize = D3Dinfo.fontSize;
+		for( uint i = 0; i < 4; ++i )
+			info.argb[i] = D3Dinfo.argb[i];
+
+		return info;
 	}
 
 	////////////////

@@ -5,6 +5,7 @@
 #include "D3DSprite.h"
 #include "D3DTextureCache.h"
 #include "D3DSpriteDrawQueue.h"
+#include "D3DText.h"
 
 namespace GameUtilities
 {
@@ -126,6 +127,81 @@ namespace GameUtilities
 		Graphics()->GetSpriteInterface()->End();
 	}
 
+	/////////////////////
+	// Text management //
+	/////////////////////
+
+	//////////////////////////
+	// CreateTextCollection //
+	//////////////////////////
+	D3DGraphicsProvider::TextCollectionID      
+	D3DGraphicsProvider::CreateTextCollection()
+	{
+		D3DTextCollection *pTextCollection = new D3DTextCollection();
+		m_textCollections[ pTextCollection->GetID() ] = pTextCollection;
+		return pTextCollection->GetID();
+	}
+
+	///////////////////////////
+	// DestroyTextCollection //
+	///////////////////////////
+	void                  
+	D3DGraphicsProvider::DestroyTextCollection( TextCollectionID id )
+	{
+		VerifyTextCollectionID( id );
+		m_textCollections.erase( id );
+	}
+
+	/////////////
+	// AddText //
+	/////////////
+	void                  
+	D3DGraphicsProvider::AddText( TextCollectionID id, std::string name, const TextInfo &info )
+	{
+		VerifyTextCollectionID( id );
+		m_textCollections[ id ]->AddText( name, new D3DText( ConstructD3DTextInfo( info ) ) );
+	}
+
+	////////////////
+	// RemoveText //
+	////////////////
+	void                  
+	D3DGraphicsProvider::RemoveText( TextCollectionID id, std::string name )
+	{
+		VerifyTextCollectionID( id );
+		m_textCollections[ id ]->RemoveText( name );
+	}
+
+	/////////////
+	// SetText //
+	/////////////
+	void                  
+	D3DGraphicsProvider::SetText( TextCollectionID id, std::string name, const TextInfo &info )
+	{
+		VerifyTextCollectionID( id );
+		m_textCollections[ id ]->GetText( name )->Set( ConstructD3DTextInfo( info ) );
+	}
+
+	/////////////
+	// GetText //
+	/////////////
+	D3DGraphicsProvider::TextInfo              
+	D3DGraphicsProvider::GetText( TextCollectionID id, std::string name )
+	{
+		VerifyTextCollectionID( id );
+		return ExtractTextInfo( m_textCollections[ id ]->GetText( name )->Get() );
+	}
+
+	////////////////////////
+	// DrawTextCollection //
+	////////////////////////
+	void                  
+	D3DGraphicsProvider::DrawTextCollection( TextCollectionID id )
+	{
+		VerifyTextCollectionID( id );
+		m_textCollections[ id ]->DrawCollection();
+	}
+
 	/**************/
 	/* Destructor */
 	/**************/
@@ -136,6 +212,13 @@ namespace GameUtilities
 			 spriteCollectionItr != m_spriteCollections.end(); ++spriteCollectionItr )
 		{
 			delete spriteCollectionItr->second;
+		}
+
+		// De-allocate text collections
+		for( TextCollectionMap::iterator textCollectionItr = m_textCollections.begin();
+			 textCollectionItr != m_textCollections.end(); ++textCollectionItr )
+		{
+			delete textCollectionItr->second;
 		}
 
 		// Destroy graphics layer.
