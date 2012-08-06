@@ -31,7 +31,7 @@ namespace GameUtilities
 		// Construct and set the world transformation matrix.
 		D3DXMATRIX world, rotation, scale, translation;
 		D3DXMatrixRotationYawPitchRoll( &rotation, 0, 0, m_info.rotation * PI / 180.0f );
-		D3DXMatrixScaling( &scale, m_info.scale, m_info.scale, 0 );
+		D3DXMatrixScaling( &scale, m_info.scaleX, m_info.scaleY, 0 );
 		D3DXMatrixTranslation( &translation, m_info.position.x, m_info.position.y, 0 );
 		world = rotation * scale * translation;
 		

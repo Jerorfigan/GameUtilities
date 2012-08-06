@@ -32,7 +32,8 @@ namespace GameUtilities
 			{
 				subrect.left = subrect.right = subrect.top = subrect.bottom = 0;
 				rotation = 0.0f;
-				scale = 1.0f;
+				scaleX = 1.0f;
+				scaleY = 1.0f;
 				alpha = 1.0f;
 			    zDepth = 0.0f;
 			}
@@ -42,7 +43,8 @@ namespace GameUtilities
 			Point2D		   center;    // In subrect pixels. Reference point for rotation/scale.
 			Point2D		   position;  // In screen pixels
 			float		   rotation;  // In degrees. Positive for CW.
-			float		   scale;     // 0-1(shrink), >1(grow)
+			float		   scaleX;     // 0-1(shrink), >1(grow)
+			float          scaleY;
 			float		   alpha;     // 0(trans)-1(opaque)
 			float          zDepth;    // 0(foreground)-1(background)
 		};

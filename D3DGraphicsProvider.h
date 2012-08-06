@@ -105,7 +105,8 @@ namespace GameUtilities
 		spriteInfo.imageFile = info.imageFile;
 		spriteInfo.position = info.position;
 		spriteInfo.rotation = info.rotation;
-		spriteInfo.scale = info.scale;
+		spriteInfo.scaleX = info.scaleX;
+		spriteInfo.scaleY = info.scaleY;
 		spriteInfo.subrect = info.subrect;
 		spriteInfo.zDepth = info.zDepth;
 
@@ -124,7 +125,8 @@ namespace GameUtilities
 		spriteInfo.imageFile = info.imageFile;
 		spriteInfo.position = info.position;
 		spriteInfo.rotation = info.rotation;
-		spriteInfo.scale = info.scale;
+		spriteInfo.scaleX = info.scaleX;
+		spriteInfo.scaleY = info.scaleY;
 		spriteInfo.subrect = info.subrect;
 		spriteInfo.zDepth = info.zDepth;
 

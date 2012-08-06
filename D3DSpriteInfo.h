@@ -21,7 +21,8 @@ namespace GameUtilities
 		Point2D		   center;
 		Point2D		   position;
 		float		   rotation;
-		float          scale;
+		float          scaleX;
+		float          scaleY;
 		float          alpha;
 		float          zDepth;
 	};
