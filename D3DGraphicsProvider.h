@@ -171,6 +171,7 @@ namespace GameUtilities
 		D3DTextInfo d3dInfo;
 		d3dInfo.contents = info.contents;
 		d3dInfo.position = info.position;
+		d3dInfo.justification = (D3DTextInfo::Justification)info.justification;
 		d3dInfo.fontSize = info.fontSize;
 		for( uint i = 0; i < 4; ++i )
 			d3dInfo.argb[i] = info.argb[i];
@@ -187,6 +188,7 @@ namespace GameUtilities
 		TextInfo info;
 		info.contents = D3Dinfo.contents;
 		info.position = D3Dinfo.position;
+		info.justification = (TextInfo::Justification)D3Dinfo.justification;
 		info.fontSize = D3Dinfo.fontSize;
 		for( uint i = 0; i < 4; ++i )
 			info.argb[i] = D3Dinfo.argb[i];

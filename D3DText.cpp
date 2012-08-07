@@ -51,6 +51,22 @@ namespace GameUtilities
 
 		// Calculate the rectangle the text will occupy
 		pD3DXFont->DrawText( NULL , m_info.contents.c_str(), -1, &textRect, DT_CALCRECT, color );
+
+		if( m_info.justification == D3DTextInfo::Center )
+		{
+			// center rectangle on text position.
+			LONG offset = -1 * (LONG)(( textRect.right - textRect.left ) / 2.0 );
+			textRect.left += offset;
+			textRect.right += offset;
+		}
+		else if( m_info.justification == D3DTextInfo::Right )
+		{
+			// right justify text on text position
+			LONG offset = -1 * ( textRect.right - textRect.left );
+			textRect.left += offset;
+			textRect.right += offset;
+		}
+
 		pD3DXFont->DrawText( NULL, m_info.contents.c_str(), -1, &textRect, DT_LEFT, color );
 
 		pD3DXFont->Release();
